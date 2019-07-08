@@ -1,2 +1,2 @@
 # simple_cpu
-A simple virtual CPU demonstration purposes
+A simple virtual CPU for demonstration purposes
