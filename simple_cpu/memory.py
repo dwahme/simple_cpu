@@ -24,5 +24,6 @@ class Memory:
         if location >= MEM_MIN and location <= MEM_MAX:
             return memory[location]
 
-    def write(self):
-        pass
+    def write(self, location, value):
+        if location >= GEN_MIN and location <= GEN_MAX:
+            memory[location] = value
