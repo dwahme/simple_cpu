@@ -208,3 +208,12 @@ class CPU:
         elif op == "JGT":
             if not flag_overflow:
                 reg[REG_PC] = reg[instr.args[0]]
+
+        
+    # Executes an instruction cycle
+    def cycle(self):
+        self.instr_fetch()
+        self.instr_decode()
+        self.execute()
+        self.mem()
+        self.writeback()
