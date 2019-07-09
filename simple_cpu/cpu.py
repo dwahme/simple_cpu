@@ -10,7 +10,7 @@ def get_bits(num, lo, hi):
 def bitwise_breakdown(num, breaks):
     res = []
 
-    for idx, stop in enumerate(breaks[:-1]):
+    for idx, stop in enumerate(breaks[1:]):
         start = breaks[idx]
         res.append(get_bits(num, start, stop - 1))
 
