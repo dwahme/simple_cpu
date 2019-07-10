@@ -1,9 +1,14 @@
+# The SIMPLE ASSEMBLY LANGUAGE and The Simple CPU
 
-This contains information about SAL (SIMPLE ASSEMBLY LANGUAGE), the assembly language in the virtual CPU.
+This contains information about SAL (SIMPLE ASSEMBLY LANGUAGE), the assembly language in the virtual CPU. It's about as close as it gets to an ISA.
+
+## Machine Info
 
 All instructions are fixed-length 16 bit instructions. Unused bits are for filling in placeholders. The most significant bit is referred to as bit 0, and the least significant bit is referred to as bit 15, so that instructions can be read from left to right.
 
 There are 8 registers in this virtual CPU. Registers 0-5 (inclusive) are general purpose registers. Register 6 holds the program counter. Register 7 is always 0. The zero flag is true if an operation evaluates to zero. The overflow flag is true if an operation would yield less than 0 or more than 255, and has to be reset.
+
+## Instruction information
 
 Immediate is a constant value. Source means get the value in the register pointed to by source. Destination means set the register pointed to by destination.
 
