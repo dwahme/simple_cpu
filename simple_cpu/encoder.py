@@ -9,12 +9,15 @@ class Assembler:
         instr = opcode << 12
 
         if num_args != len(args):
-            print("Invalid number of arguments: " + " ".join(args))
+            strs = [str(x) for x in args]
+            print("Invalid number of arguments: " + " ".join(strs))
             return -1
 
         for idx, start in enumerate(starts[:-1]):
             if args[idx + 1] >= 2 ** (starts[idx + 1] - start):
-                print("Invalid instruction: " + " ".join(args))
+                strs = [str(x) for x in args]
+                print("Argument {} too large: ".format(args[idx + 1]) + 
+                    " ".join(strs))
                 return -1
             else:
                 instr += args[idx + 1] << 16 - starts[idx + 1]
@@ -57,7 +60,7 @@ class Assembler:
                     out.append(self.encode(7, 3, [4, 7, 10], [op] + nums))
                 elif op == "STORE":
                     out.append(self.encode(8, 3, [4, 7, 16], [op] + nums))
-                elif op == "LOADR":
+                elif op == "STORER":
                     out.append(self.encode(9, 3, [4, 7, 10], [op] + nums))
 
                 elif op == "JMP":
@@ -74,8 +77,11 @@ class Assembler:
                 elif op == "EXIT":
                     out.append(self.encode(15, 1, [4], [op] + nums))
 
+                if out[-1] == -1:
+                    return []
+
         if outfile != "":
             with open(outfile, "w") as f:
-                f.writelines(out)
+                f.writelines([str(format(x, '#06x'))[2:] + "\n" for x in out])
 
         return out
