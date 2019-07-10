@@ -1,6 +1,8 @@
 
 This contains information about SAL (SIMPLE ASSEMBLY LANGUAGE), the assembly language in the virtual CPU.
 
+All instructions are fixed-length 16 bit instructions. Unused bits are for filling in placeholders. The most significant bit is referred to as bit 0, and the least significant bit is referred to as bit 15, so that instructions can be read from left to right.
+
 The bit-wise breakdown key is as follows:
 - O: opcode bit
 - R: register bit
