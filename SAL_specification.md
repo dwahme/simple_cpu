@@ -1,6 +1,6 @@
 # The SIMPLE ASSEMBLY LANGUAGE and The Simple CPU
 
-This contains information about SAL (SIMPLE ASSEMBLY LANGUAGE), the assembly language in the virtual CPU. It's about as close as it gets to an ISA.
+This contains information about SAL (SIMPLE ASSEMBLY LANGUAGE), the assembly language in the virtual CPU. This can be treated as a very simple ISA.
 
 ## Machine Info
 
