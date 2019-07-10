@@ -175,10 +175,8 @@ class CPU:
         elif op == "LOADR":
             self.result = self.memory.read(reg[instr.args[1]])
         elif op == "STORE":
-            print("STORE")
             self.memory.write(reg[instr.args[0]], instr.args[1])
         elif op == "STORER":
-            print("STORER")
             self.memory.write(reg[instr.args[0]], reg[instr.args[1]])
 
         # Arithmetic operators, MOV operators, PC modifiers, Exit
@@ -230,7 +228,7 @@ class CPU:
         self.writeback()
 
 
-    def run(self, dump=False):
+    def run(self, dump=False, lo=0, hi=12):
 
         # for _ in range(14):
         while not self.done:
@@ -238,6 +236,9 @@ class CPU:
 
             if dump:
                 self.dump()
+
+        if not dump:
+            self.dump()
 
         self.memory.dump(0, 12)
 
