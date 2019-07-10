@@ -1,0 +1,4 @@
+MOV 0 3
+MOV 1 4
+ADDR 2 0 1
+EXIT
